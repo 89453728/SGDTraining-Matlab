@@ -1,0 +1,52 @@
+clear all
+clc
+clear all
+X = [0 0 1; 0 1 1; 1 0 1 ;1 1 1];
+D=[0 1 1 0];
+W1 = 2*rand(4,3)-1;
+W2 = 2*rand(1,4)-1;
+for epoch=1:1e4
+[W1,W2]=BackpropXOR(W1,W2,X,D);
+end
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mtimes')" style="font-weight:bold"> * </a>
+Incorrect dimensions for matrix multiplication. Check that the number of columns in the
+first matrix matches the number of rows in the second matrix. To perform elementwise
+multiplication, use '.*'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('BackpropXOR', '/home/zempron/Software/MATLAB/AI/BackpropXOR.m', 9)" style="font-weight:bold">BackpropXOR</a> (<a href="matlab: opentoline('/home/zempron/Software/MATLAB/AI/BackpropXOR.m',9,0)">line 9</a>)
+    v1=W1*x;
+
+<a href="matlab:helpview('matlab','error_innerdim')" style="font-weight:bold">Related documentation</a>
+} 
+for epoch=1:1e4
+[W1,W2]=BackpropXOR(W1,W2,X,D);
+end
+
+N=4;
+for k=1:N
+x=X(k,:)';
+v1=W1*x;
+y1=Sigmoid2(v1);
+v=W2*y1;
+y=Sigmoid2(v)
+end
+
+y =
+
+    0.0082
+
+
+y =
+
+    0.9898
+
+
+y =
+
+    0.9894
+
+
+y =
+
+    0.0103
+
